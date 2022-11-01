@@ -1,0 +1,60 @@
+.registration {
+    height: 100vh;
+    padding: 50px 0px;
+    width: 100%;
+    background-image: linear-gradient(#645CAA, #A084CA);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-registration {
+    background-color: white;
+    padding: 30px 60px;
+    border-radius: .5rem;
+    flex-direction: column;
+
+}
+
+.inner-registration>form {
+    width: 350px;
+}
+
+.inner-registration>p {
+    width: 100%;
+    text-align: center;
+}
+
+#avatar {
+    display: none;
+}
+
+.avatar-label {
+    display: flex;
+    font-size: 16px;
+    gap: 20px;
+    color: #212529;
+    font-weight: 400;
+    align-items: center;
+
+}
+
+/* ========================== Home ============================== */
+
+.home {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 160px;
+    background-image: linear-gradient(#645CAA, #A084CA);
+}
+
+.inner-home {
+    width: 100%;
+    height: calc(100vh - 160px);
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+}

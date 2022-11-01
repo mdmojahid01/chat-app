@@ -1,0 +1,349 @@
+:root {
+    --scroll-bar-bgColor: white;
+    --sidebar-bgcolor: #454572;
+    --sidebar-nav-bgcolor: black;
+    --chat-div-bgColor: white;
+    --chat-div-navColor: black;
+
+    /* ----------------------------------- */
+    --message-div-bgColor: #d2cff0;
+    --message-card-bgColor: white;
+    --message-owner-bgColor: #8b86c6;
+}
+
+p {
+    margin-bottom: 0 !important;
+
+}
+
+/* ===================== Sidebar Component ===================== */
+.sidebar {
+    flex: 1;
+    background-color: var(--sidebar-bgcolor);
+    height: 100%;
+}
+
+/* ===================== Chat Component ===================== */
+.chat-div {
+    flex: 2;
+    background-color: var(--chat-div-bgColor);
+    height: 100%;
+}
+
+.chat-nav {
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    background-color: var(--chat-div-navColor);
+    display: flex;
+    align-items: center;
+
+}
+
+.chat-nav>p {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* ===================== Navbar Component ===================== */
+.navbar-custom {
+    color: white;
+    background-color: var(--sidebar-nav-bgcolor);
+    display: flex;
+    height: 60px;
+    padding: 10px 20px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.right {
+    display: flex;
+    flex: 2;
+    gap: 10px;
+    align-items: center;
+    justify-content: end;
+}
+
+.avatar-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.avatar-icon>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 18px;
+}
+
+.logout-btn {
+    color: white;
+    border: none;
+    outline: none;
+    padding: 4px 8px;
+    background-color: var(--sidebar-bgcolor);
+}
+
+.logout-btn:hover {
+    color: var(--sidebar-bgcolor);
+    background-color: white;
+}
+
+/* ===================== Search Component ===================== */
+.search-div {
+    width: 100%;
+    border-bottom: 1px solid white;
+    min-height: 45px;
+
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-form>input {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 8px 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.search-form>input:focus-visible {
+    outline: none !important;
+}
+
+.search-form>input::placeholder {
+    color: gainsboro;
+}
+
+.searched-user {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+
+}
+
+.searched-user:hover {
+    background-color: var(--sidebar-nav-bgcolor);
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.avatar>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.searched-user>p {
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ===================== chats Component ===================== */
+.Chats-div {
+    overflow-y: scroll;
+    height: calc(100% - 105px);
+    width: 100%;
+
+}
+
+.Chats-div::-webkit-scrollbar,
+.messages-div::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+.Chats-div::-webkit-scrollbar-thumb,
+.messages-div::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-bar-bgColor);
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userInfo>p {
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.userInfo>span {
+    color: lightgrey;
+}
+
+/* ===================== Messages Component ===================== */
+.messages-div {
+    padding: 10px 20px;
+    background-color: var(--message-div-bgColor);
+    height: calc(100% - 120px);
+    overflow-y: scroll;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+}
+
+.mesaage-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.owner-message {
+    justify-content: flex-end;
+}
+
+.message {
+    display: flex;
+    width: 80%;
+    gap: 20px;
+}
+
+.owner-message>div {
+    flex-direction: row-reverse;
+}
+
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.message-avatar>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message-card {
+    background-color: var(--message-card-bgColor);
+    border-radius: 0px 10px 10px 10px;
+    padding: 25px 30px 30px;
+    color: black;
+    font-size: 18px;
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    font-weight: 500;
+    line-height: 1.7rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.owner-message .message-card {
+    background-color: var(--message-owner-bgColor);
+    border-radius: 10px 0px 10px 10px;
+}
+
+.message-card>span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: grey;
+    padding: 3px 6px;
+    font-size: 14px;
+}
+
+.message-card>div {
+    width: 100%;
+}
+
+.message-card>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+/* ===================== Input Component ===================== */
+.input-div {
+    height: 60px;
+    padding: 10px 20px;
+    background-color: white;
+    display: flex;
+}
+
+.input-div>input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0px 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.input-div>input::placeholder {
+    color: lightgrey;
+}
+
+.send-div {
+    display: flex;
+    width: 150px;
+    gap: 5px;
+    align-items: center;
+    font-size: 30px;
+}
+
+.send-div>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+
+}
+
+.send-div>*:hover {
+    background-color: rgb(230, 228, 228);
+}
+
+/* ===================== Chat Component ===================== */
