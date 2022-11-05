@@ -1,12 +1,12 @@
 import React from "react";
-// import "./page.css";
+import { NavLink } from "react-router-dom";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function Login() {
   const handleSubmit = (e) => {
-    e.preventDefalt();
+    e.preventDefault();
   };
   // =================== JSX ======================
   return (
@@ -16,13 +16,13 @@ function Login() {
         <p>Login</p>
         <form onSubmit={handleSubmit}>
           <FloatingLabel
-            controlId="floatingInput"
+            controlId="floatingInput1"
             label="Email address"
             className="mb-3"
           >
             <Form.Control type="email" placeholder="name@example.com" />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingPassword" label="Password">
+          <FloatingLabel controlId="floatingPassword1" label="Password">
             <Form.Control type="password" placeholder="Password" />
           </FloatingLabel>
           <br />
@@ -31,7 +31,9 @@ function Login() {
           </Button>
         </form>
         <br />
-        <p>You don't have an account? Register</p>
+        <p>
+          You don't have an account? <NavLink to="/register">Register</NavLink>
+        </p>
       </div>
     </div>
   );

@@ -1,14 +1,17 @@
 :root {
-    --scroll-bar-bgColor: white;
-    --sidebar-bgcolor: #454572;
-    --sidebar-nav-bgcolor: black;
+    --scroll-bar-bgColor: #ced0d1;
+    --sidebar-bgcolor: white;
+    --sidebar-nav-bgcolor: #001134;
     --chat-div-bgColor: white;
-    --chat-div-navColor: black;
+    --chat-div-navColor: #001134;
 
     /* ----------------------------------- */
-    --message-div-bgColor: #d2cff0;
+    --message-div-bgColor: #f0f2f5;
     --message-card-bgColor: white;
-    --message-owner-bgColor: #8b86c6;
+    --message-owner-bgColor: rgb(193, 228, 251);
+    /* -------------------------------------- */
+    --logout-bgColor: rgb(193, 228, 251);
+    --logout-Color: black;
 }
 
 p {
@@ -21,6 +24,7 @@ p {
     flex: 1;
     background-color: var(--sidebar-bgcolor);
     height: 100%;
+    border-right: 1px solid #ced0d1;
 }
 
 /* ===================== Chat Component ===================== */
@@ -94,22 +98,23 @@ p {
 }
 
 .logout-btn {
-    color: white;
+    color: var(--logout-Color);
     border: none;
     outline: none;
     padding: 4px 8px;
-    background-color: var(--sidebar-bgcolor);
+    background-color: var(--logout-bgColor);
+    border-radius: 4px;
 }
 
 .logout-btn:hover {
-    color: var(--sidebar-bgcolor);
-    background-color: white;
+    color: var(--logout-bgColor);
+    background-color: var(--logout-Color);
 }
 
 /* ===================== Search Component ===================== */
 .search-div {
     width: 100%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #ced0d1;
     min-height: 45px;
 
 }
@@ -124,7 +129,6 @@ p {
     background-color: transparent;
     border: none;
     padding: 8px 20px;
-    color: white;
     font-size: 18px;
     font-weight: 500;
 }
@@ -134,7 +138,7 @@ p {
 }
 
 .search-form>input::placeholder {
-    color: gainsboro;
+    color: gray;
 }
 
 .searched-user {
@@ -143,11 +147,13 @@ p {
     padding: 10px 20px;
     width: 100%;
     cursor: pointer;
+    border-bottom: 0.20px solid #ced0d1;
 
 }
 
 .searched-user:hover {
     background-color: var(--sidebar-nav-bgcolor);
+    color: white;
 }
 
 .avatar {
@@ -169,7 +175,6 @@ p {
     height: 100%;
     text-align: center;
     margin: 0;
-    color: white;
     font-size: 18px;
     font-weight: 600;
 }
@@ -204,13 +209,12 @@ p {
     height: 100%;
     text-align: center;
     margin: 0;
-    color: white;
     font-size: 18px;
     font-weight: 600;
 }
 
 .userInfo>span {
-    color: lightgrey;
+    color: gray;
 }
 
 /* ===================== Messages Component ===================== */
