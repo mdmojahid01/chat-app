@@ -107,8 +107,8 @@ p {
 }
 
 .logout-btn:hover {
-    color: var(--logout-bgColor);
-    background-color: var(--logout-Color);
+    color: black;
+    background-color: white;
 }
 
 /* ===================== Search Component ===================== */
