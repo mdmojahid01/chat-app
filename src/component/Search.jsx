@@ -13,17 +13,20 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import { ChatContext } from "../context/ChatContext";
 
 // ========================= Component ======================
 function Search() {
   const [user, setUser] = useState(null);
   const [inputVal, setInputVal] = useState("");
   const { currentUser } = useContext(AuthContext);
+  const { dispatch } = useContext(ChatContext);
   // ------------------------ Handle Change -------------------------
   const handleChange = (e) => {
     setInputVal(e.target.value);
   };
-  // -----------------Handle Submit------------------
+  // ----------- Handle Submit - searching user form submit ------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
     const usersRef = collection(db, "users");
@@ -31,21 +34,24 @@ function Search() {
     const q = query(usersRef, where("email", "==", e.target[0].value));
     try {
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-      });
+      if (querySnapshot.empty) {
+        toast.error("No user found.");
+      } else {
+        querySnapshot.forEach((doc) => {
+          setUser(doc.data());
+        });
+      }
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
-  // --------------------
+  // ------ Handle Selection - select user after search result ----------------
   const handleSelect = async (e) => {
-    // console.log(user, currentUser);
-    // check weather the group (chats collection in firestore ) exists or not, if not then create.
     const combinedId =
-      currentUser.uid > user.uid
+      currentUser.uid[0].charCodeAt() > user.uid[0].charCodeAt()
         ? currentUser.uid + user.uid
-        : currentUser.uid + user.uid;
+        : user.uid + currentUser.uid;
+    // check weather the group (chats collection in firestore ) exists or not, if not then create.
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
       if (!res.exists()) {
@@ -73,21 +79,33 @@ function Search() {
         });
       }
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
-
+    dispatch({ type: "CHANGE_USER", payload: user });
     setUser(null);
     setInputVal("");
   };
   // =============== JSX ================
   return (
     <div className="search-div">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"
           name="username"
           id="username"
-          placeholder="Find a user by email id"
+          placeholder="Find a user using email id"
           value={inputVal}
           onChange={handleChange}
         />

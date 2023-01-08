@@ -139,6 +139,8 @@ p {
 
 .search-form>input::placeholder {
     color: gray;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .searched-user {
@@ -154,6 +156,11 @@ p {
 .searched-user:hover {
     background-color: var(--sidebar-nav-bgcolor);
     color: white;
+}
+
+.selected-user {
+    background-color: var(--message-owner-bgColor);
+    color: black;
 }
 
 .avatar {

@@ -1,10 +1,14 @@
 /* ======== Registration and Login page ============ */
+:root {
+    --bg-color: #0081C9;
+
+}
 
 .registration {
     height: 100vh;
     padding: 50px 0px;
     width: 100%;
-    background-image: linear-gradient(#645CAA, #A084CA);
+    background-color: var(--bg-color);
 }
 
 .flex-center {
@@ -66,8 +70,7 @@
     width: 100%;
     height: 100vh;
     padding: 50px 100px;
-    background-color: lightskyblue;
-    /* background-image: linear-gradient(#645CAA, #A084CA); */
+    background-color: var(--bg-color);
 }
 
 .inner-home {

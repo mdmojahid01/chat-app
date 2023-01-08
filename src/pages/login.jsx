@@ -25,14 +25,21 @@ function Login() {
     e.preventDefault();
     let email = e.target[0].value;
     let password = e.target[1].value;
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
-    } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      toast.error(errorMessage, defaultToastParameter);
-      console.log(errorCode, " / ", errorMessage);
+    if (email.length === 0 && password.length === 0) {
+      toast.error("Please enter email & password", defaultToastParameter);
+    } else if (email.length === 0) {
+      toast.error("Please enter email", defaultToastParameter);
+    } else if (password.length === 0) {
+      toast.error("Please enter password", defaultToastParameter);
+    } else {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        navigate("/");
+      } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(errorMessage, defaultToastParameter);
+      }
     }
   };
   // =================== JSX ======================
